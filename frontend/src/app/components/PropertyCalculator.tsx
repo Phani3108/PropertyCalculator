@@ -399,14 +399,15 @@ export default function PropertyCalculator() {
         <div>
           <label className="label-luxury">Built-up Area (sq ft)</label>
           <input
-            type="number"
+            type="text"
+            inputMode="decimal"
+            pattern="[0-9]*\.?[0-9]*"
             name="builtUpSqft"
             value={formData.builtUpSqft}
             onChange={handleInputChange}
             className="input-luxury"
             required
-            min="0"
-            step="0.01"
+            placeholder="e.g. 1200"
           />
         </div>
 
