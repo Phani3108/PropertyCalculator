@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { cities, findCityById, stateRules, regionPathForCity } from '../../../../lib/rules';
-import { getCurrencyForCountry, formatCurrency } from '../../../../lib/currency';
-import { getTrendForCity, getYoYGrowth, getCAGR } from '../../../../lib/trends';
+import { cities, findCityById, stateRules, regionPathForCity } from '../../../lib/rules';
+import { getCurrencyForCountry, formatCurrency } from '../../../lib/currency';
+import { getTrendForCity, getYoYGrowth, getCAGR } from '../../../lib/trends';
 
 // Simple API key validation — keys stored in env var as comma-separated list
 function validateApiKey(req: NextRequest): boolean {

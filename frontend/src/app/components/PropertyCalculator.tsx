@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import InfoTooltip from './InfoTooltip';
 import { useLocalStorage } from './useLocalStorage';
@@ -263,17 +264,19 @@ export default function PropertyCalculator() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-3 sm:px-6 py-4">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-2">Property Cost Calculator</h1>
+    <div className="max-w-2xl mx-auto">
+      <div className="glass-card p-6 sm:p-8">
+      <h1 className="text-2xl sm:text-3xl font-serif font-bold text-espresso mb-1">Property Cost Calculator</h1>
+      <p className="text-sand-500 text-sm mb-5">Verified data for 35 cities across 11 countries</p>
       {rulesMeta && (
-        <div className="mb-4 text-xs text-gray-600 bg-gray-100 p-3 rounded">
-          Calculations based on latest rules. Version {rulesMeta.version}. Last verified {rulesMeta.lastUpdated}. Source: {rulesMeta.source}
+        <div className="mb-5 text-xs text-sand-500 bg-sand-100 border border-sand-200 p-3 rounded-xl">
+          Rules v{rulesMeta.version} · Verified {rulesMeta.lastUpdated} · <a href={rulesMeta.source} target="_blank" rel="noreferrer" className="text-gold-600 hover:underline">Source</a>
         </div>
       )}
       
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block mb-2">Country</label>
+          <label className="label-luxury">Country</label>
           <select
             value={selectedCountry}
             onChange={(e) => {
@@ -281,7 +284,7 @@ export default function PropertyCalculator() {
               setSelectedRegion('');
               setFormData(prev => ({ ...prev, cityId: '' }));
             }}
-            className="w-full p-2 border rounded"
+            className="select-luxury"
           >
             <option value="">All Countries</option>
             {Array.from(new Set(cities.map(c => c.country).filter(Boolean) as string[])).map(country => (
@@ -291,14 +294,14 @@ export default function PropertyCalculator() {
         </div>
 
         <div>
-          <label className="block mb-2">Region/State</label>
+          <label className="label-luxury">Region / State</label>
           <select
             value={selectedRegion}
             onChange={(e) => {
               setSelectedRegion(e.target.value);
               setFormData(prev => ({ ...prev, cityId: '' }));
             }}
-            className="w-full p-2 border rounded"
+            className="select-luxury"
           >
             <option value="">All Regions</option>
             {Array.from(new Set(
@@ -313,19 +316,19 @@ export default function PropertyCalculator() {
         </div>
 
         <div>
-          <div className="flex items-center justify-between mb-2">
-            <label className="block">City</label>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="label-luxury !mb-0">City</label>
             {activeRuleBadge && (
-              <div className="text-xs text-gray-600 flex items-center gap-2">
-                <span className="inline-flex items-center px-2 py-0.5 rounded bg-gray-100">{activeRuleBadge.region}</span>
+              <div className="text-xs text-sand-500 flex items-center gap-2">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-sand-100 border border-sand-200">{activeRuleBadge.region}</span>
                 {activeRuleBadge.version && (
-                  <span className="inline-flex items-center px-2 py-0.5 rounded bg-blue-100">v{activeRuleBadge.version}</span>
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-gold-400/10 text-gold-700 border border-gold-400/20">v{activeRuleBadge.version}</span>
                 )}
                 {activeRuleBadge.source && (
-                  <a href={activeRuleBadge.source} target="_blank" rel="noreferrer" className="inline-flex items-center px-2 py-0.5 rounded bg-green-100 text-green-800">Source</a>
+                  <a href={activeRuleBadge.source} target="_blank" rel="noreferrer" className="inline-flex items-center px-2 py-0.5 rounded-lg bg-sand-100 text-gold-600 border border-sand-200 hover:bg-sand-200">Source</a>
                 )}
                 {activeRuleJson && (
-                  <button type="button" onClick={() => setShowRuleDetails(v => !v)} className="inline-flex items-center px-2 py-0.5 rounded bg-gray-200 hover:bg-gray-300">Details</button>
+                  <button type="button" onClick={() => setShowRuleDetails(v => !v)} className="inline-flex items-center px-2 py-0.5 rounded-lg bg-sand-200 hover:bg-sand-300 text-espresso transition-colors">Details</button>
                 )}
               </div>
             )}
@@ -339,7 +342,7 @@ export default function PropertyCalculator() {
               setSelectedCountry(c?.country || '');
               setSelectedRegion(c?.region || c?.state || '');
             }}
-            className="w-full p-2 border rounded"
+            className="select-luxury"
             required
           >
             <option value="">Select City</option>
@@ -354,22 +357,22 @@ export default function PropertyCalculator() {
           </select>
         </div>
         {(selectedCountry || selectedRegion) && (
-          <div className="text-xs text-gray-600 -mt-2 mb-2">{selectedCountry ? `Country: ${selectedCountry}` : ''} {selectedRegion ? `• Region: ${selectedRegion}` : ''}</div>
+          <div className="text-xs text-sand-400 -mt-3 mb-1">{selectedCountry ? `Country: ${selectedCountry}` : ''} {selectedRegion ? `· Region: ${selectedRegion}` : ''}</div>
         )}
         {showRuleDetails && activeRuleJson && (
-          <div className="text-xs text-gray-700 bg-gray-50 border rounded p-3 mb-2">
-            <div className="font-semibold mb-1">Active Rules (preview)</div>
-            <pre className="max-h-48 overflow-auto whitespace-pre-wrap">{JSON.stringify(activeRuleJson, null, 2)}</pre>
+          <div className="text-xs text-espresso bg-sand-100 border border-sand-200 rounded-xl p-4 mb-2">
+            <div className="font-semibold mb-1 text-gold-700">Active Rules (preview)</div>
+            <pre className="max-h-48 overflow-auto whitespace-pre-wrap text-sand-500">{JSON.stringify(activeRuleJson, null, 2)}</pre>
           </div>
         )}
 
         <div>
-          <label className="block mb-2">Property Type</label>
+          <label className="label-luxury">Property Type</label>
           <select
             name="propertyType"
             value={formData.propertyType}
             onChange={handleInputChange}
-            className="w-full p-2 border rounded"
+            className="select-luxury"
             required
           >
             <option value="flat">Flat</option>
@@ -379,13 +382,13 @@ export default function PropertyCalculator() {
 
         {formData.propertyType === 'house' && (
           <div>
-            <label className="block mb-2">Plot Area (sq ft)</label>
+            <label className="label-luxury">Plot Area (sq ft)</label>
             <input
               type="number"
               name="plotSqft"
               value={formData.plotSqft}
               onChange={handleInputChange}
-              className="w-full p-2 border rounded"
+              className="input-luxury"
               required
               min="0"
               step="0.01"
@@ -394,13 +397,13 @@ export default function PropertyCalculator() {
         )}
 
         <div>
-          <label className="block mb-2">Built-up Area (sq ft)</label>
+          <label className="label-luxury">Built-up Area (sq ft)</label>
           <input
             type="number"
             name="builtUpSqft"
             value={formData.builtUpSqft}
             onChange={handleInputChange}
-            className="w-full p-2 border rounded"
+            className="input-luxury"
             required
             min="0"
             step="0.01"
@@ -408,12 +411,12 @@ export default function PropertyCalculator() {
         </div>
 
         <div>
-          <label className="block mb-2">Quality Level</label>
+          <label className="label-luxury">Quality Level</label>
           <select
             name="budgetQuality"
             value={formData.budgetQuality}
             onChange={handleInputChange}
-            className="w-full p-2 border rounded"
+            className="select-luxury"
             required
           >
             <option value="basic">Basic</option>
@@ -423,12 +426,12 @@ export default function PropertyCalculator() {
         </div>
 
         <div>
-          <label className="block mb-2">Gender (for stamp duty calculation)</label>
+          <label className="label-luxury">Gender (for stamp duty)</label>
           <select
             name="gender"
             value={formData.gender}
             onChange={handleInputChange}
-            className="w-full p-2 border rounded"
+            className="select-luxury"
             required
           >
             <option value="male">Male</option>
@@ -439,12 +442,12 @@ export default function PropertyCalculator() {
         {formData.propertyType === 'house' && (
           <>
             <div>
-              <label className="block mb-2">Location Type</label>
+              <label className="label-luxury">Location Type</label>
               <select
                 name="landLocation"
                 value={formData.landLocation}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded"
+                className="select-luxury"
                 required
               >
                 <option value="cityCore">City Core</option>
@@ -455,13 +458,13 @@ export default function PropertyCalculator() {
 
             {formData.landLocation === 'custom' && (
               <div>
-                <label className="block mb-2">Custom Land Rate (₹/sq ft)</label>
+                <label className="label-luxury">Custom Land Rate (₹/sq ft)</label>
                 <input
                   type="number"
                   name="customLandRate"
                   value={formData.customLandRate}
                   onChange={handleInputChange}
-                  className="w-full p-2 border rounded"
+                  className="input-luxury"
                   required
                   min="0"
                   step="0.01"
@@ -475,7 +478,7 @@ export default function PropertyCalculator() {
                 name="includePermits"
                 checked={formData.includePermits}
                 onChange={handleInputChange}
-                className="h-4 w-4"
+                className="checkbox-luxury"
               />
               <label className="inline-flex items-center">Include Building Permits Cost <InfoTooltip text="Permits include local authority approvals; assumed at 3% of construction cost." href="https://www.mohua.gov.in/" /></label>
             </div>
@@ -486,7 +489,7 @@ export default function PropertyCalculator() {
                 name="includeLoan"
                 checked={formData.includeLoan}
                 onChange={handleInputChange}
-                className="h-4 w-4"
+                className="checkbox-luxury"
               />
               <label>Include Loan/EMI</label>
             </div>
@@ -494,39 +497,39 @@ export default function PropertyCalculator() {
             {formData.includeLoan && (
               <>
                 <div>
-                  <label className="block mb-2">Loan Percentage</label>
+                  <label className="label-luxury">Loan Percentage</label>
                   <input
                     type="number"
                     name="loanPercent"
                     value={formData.loanPercent}
                     onChange={handleInputChange}
-                    className="w-full p-2 border rounded"
+                    className="input-luxury"
                     min="0"
                     max="90"
                     step="1"
                   />
                 </div>
                 <div>
-                  <label className="block mb-2">Interest Rate (%)</label>
+                  <label className="label-luxury">Interest Rate (%)</label>
                   <input
                     type="number"
                     name="interestRate"
                     value={formData.interestRate}
                     onChange={handleInputChange}
-                    className="w-full p-2 border rounded"
+                    className="input-luxury"
                     min="1"
                     max="20"
                     step="0.1"
                   />
                 </div>
                 <div>
-                  <label className="block mb-2">Loan Tenure (Years)</label>
+                  <label className="label-luxury">Loan Tenure (Years)</label>
                   <input
                     type="number"
                     name="loanTenureYears"
                     value={formData.loanTenureYears}
                     onChange={handleInputChange}
-                    className="w-full p-2 border rounded"
+                    className="input-luxury"
                     min="1"
                     max="30"
                     step="1"
@@ -545,7 +548,7 @@ export default function PropertyCalculator() {
                 name="pmayToggle"
                 checked={formData.pmayToggle}
                 onChange={handleInputChange}
-                className="h-4 w-4"
+                className="checkbox-luxury"
               />
               <label className="inline-flex items-center">Apply PMAY Subsidy <InfoTooltip text="Subsidy applies to eligible buyers under PMAY; approximate savings assumed at 2% of construction cost." href="https://pmay-urban.gov.in/" /></label>
             </div>
@@ -556,7 +559,7 @@ export default function PropertyCalculator() {
                 name="gstToggle"
                 checked={formData.gstToggle}
                 onChange={handleInputChange}
-                className="h-4 w-4"
+                className="checkbox-luxury"
               />
               <label className="inline-flex items-center">Include GST <InfoTooltip text="GST at 5% is applied on under-construction properties; resale typically has no GST." href="https://www.cbic.gov.in/" /></label>
             </div>
@@ -567,7 +570,7 @@ export default function PropertyCalculator() {
                 name="includeLoan"
                 checked={formData.includeLoan}
                 onChange={handleInputChange}
-                className="h-4 w-4"
+                className="checkbox-luxury"
               />
               <label>Include Loan/EMI</label>
             </div>
@@ -575,39 +578,39 @@ export default function PropertyCalculator() {
             {formData.includeLoan && (
               <>
                 <div>
-                  <label className="block mb-2">Loan Percentage</label>
+                  <label className="label-luxury">Loan Percentage</label>
                   <input
                     type="number"
                     name="loanPercent"
                     value={formData.loanPercent}
                     onChange={handleInputChange}
-                    className="w-full p-2 border rounded"
+                    className="input-luxury"
                     min="0"
                     max="90"
                     step="1"
                   />
                 </div>
                 <div>
-                  <label className="block mb-2">Interest Rate (%)</label>
+                  <label className="label-luxury">Interest Rate (%)</label>
                   <input
                     type="number"
                     name="interestRate"
                     value={formData.interestRate}
                     onChange={handleInputChange}
-                    className="w-full p-2 border rounded"
+                    className="input-luxury"
                     min="1"
                     max="20"
                     step="0.1"
                   />
                 </div>
                 <div>
-                  <label className="block mb-2">Loan Tenure (Years)</label>
+                  <label className="label-luxury">Loan Tenure (Years)</label>
                   <input
                     type="number"
                     name="loanTenureYears"
                     value={formData.loanTenureYears}
                     onChange={handleInputChange}
-                    className="w-full p-2 border rounded"
+                    className="input-luxury"
                     min="1"
                     max="30"
                     step="1"
@@ -616,19 +619,19 @@ export default function PropertyCalculator() {
               </>
             )}
           </>
-        )
+        )}
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-blue-300"
+          className="w-full btn-gold py-3 text-base disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? 'Calculating...' : 'Calculate Cost'}
         </button>
 
         <button
           type="button"
-          className="w-full mt-2 bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300"
+          className="w-full mt-2 btn-secondary"
           onClick={() => {
             const params = new URLSearchParams();
             Object.entries(formData).forEach(([key, rawVal]) => {
@@ -648,7 +651,7 @@ export default function PropertyCalculator() {
       </form>
 
       {error && (
-        <div className="mt-4 p-4 bg-red-100 text-red-700 rounded">
+        <div className="mt-5 p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm">
           {error}
         </div>
       )}
@@ -658,9 +661,9 @@ export default function PropertyCalculator() {
         const ctry = city?.country || 'India';
         const fmt = (n: number) => formatCurrency(n, ctry);
         return (
-          <div className="mt-6 p-4 bg-green-50 rounded">
-            <h2 className="text-xl font-semibold mb-4">Cost Breakdown</h2>
-            <div className="space-y-2">
+          <div className="mt-6 result-card animate-fade-up">
+            <h2 className="text-xl font-serif font-bold text-espresso mb-4">Cost Breakdown</h2>
+            <div className="space-y-2.5 text-sm">
               <p>Base Cost: {fmt(result.baseCost)}</p>
               {result.gst !== undefined && result.gst > 0 && (
                 <p>GST (5%): {fmt(result.gst)}</p>
@@ -668,25 +671,26 @@ export default function PropertyCalculator() {
               <p>Stamp Duty: {fmt(result.stampDuty)}</p>
               <p>Registration: {fmt(result.registration)}</p>
               {result.subsidySavings !== undefined && result.subsidySavings > 0 && (
-                <p className="text-green-600">
+                <p className="text-green-700">
                   PMAY Subsidy Savings: {fmt(result.subsidySavings)}
                 </p>
               )}
-              <div className="border-t pt-2 mt-2">
-                <p className="text-lg font-bold">
+              <div className="divider-gold" />
+              <div>
+                <p className="text-xl font-serif font-bold text-espresso">
                   Total Cost: {fmt(result.totalPayable)}
                 </p>
               </div>
               {result.emi && (
-                <div className="mt-4">
-                  <h3 className="font-semibold">Loan Details</h3>
+                <div className="mt-5 p-4 bg-sand-100 rounded-xl">
+                  <h3 className="font-serif font-semibold text-espresso mb-2">Loan Details</h3>
                   <p>Loan Amount: {fmt(result.loanAmount!)}</p>
                   <p>Down Payment: {fmt(result.downPayment!)}</p>
                   <p>Monthly EMI: {fmt(result.emi)}</p>
                   <p>Loan Tenure: {result.loanTenureYears} years</p>
                 </div>
               )}
-              <div className="mt-4 text-sm text-gray-600">
+              <div className="mt-5 text-sm text-sand-500">
                 <p>State: {result.stateInfo.state}</p>
                 <p>Stamp Duty Rate: {result.stateInfo.dutyPercent}%</p>
                 {result.stateInfo.femaleRebate && (
@@ -694,16 +698,16 @@ export default function PropertyCalculator() {
                 )}
                 <p>Registration Rate: {result.stateInfo.registrationPercent}%</p>
                 {result.stateInfo.note && (
-                  <p className="text-green-600">{result.stateInfo.note}</p>
+                  <p className="text-green-700">{result.stateInfo.note}</p>
                 )}
               </div>
               {rulesMeta && (
-                <div className="mt-2 text-xs text-gray-500">
-                  Last verified {rulesMeta.lastUpdated}. Rules version {rulesMeta.version}. Source: {rulesMeta.source}
+                <div className="mt-3 text-xs text-sand-400">
+                  Last verified {rulesMeta.lastUpdated} · Rules v{rulesMeta.version} · <a href={rulesMeta.source} target="_blank" rel="noreferrer" className="text-gold-600 hover:underline">Source</a>
                 </div>
               )}
-              <div className="mt-4">
-                <a href="/receipt" className="text-blue-600 underline">Open printable receipt</a>
+              <div className="mt-5">
+                <a href="/receipt" className="text-gold-600 hover:text-gold-700 underline underline-offset-2 text-sm">Open printable receipt →</a>
               </div>
             </div>
           </div>
@@ -715,6 +719,7 @@ export default function PropertyCalculator() {
       )}
 
       <SavedCalculations onLoad={(inputs) => setFormData(prev => ({ ...prev, ...inputs }))} />
+      </div>{/* close glass-card */}
     </div>
   );
-} 
+}

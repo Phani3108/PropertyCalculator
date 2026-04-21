@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Sand Grain Luxury Design System ─── */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-sand-50 text-charcoal font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+  ::selection {
+    @apply bg-gold-400/30;
+  }
+}
+
+@layer components {
+  /* ── Glass morphism card ── */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-sand-200/60 rounded-2xl shadow-lg;
+  }
+
+  /* ── Hero overlay for background images ── */
+  .hero-overlay {
+    @apply relative;
+  }
+  .hero-overlay::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80;
+  }
+
+  /* ── Page background image ── */
+  .page-bg {
+    @apply fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat;
+  }
+  .page-bg::after {
+    content: '';
+    @apply absolute inset-0 bg-sand-50/85 backdrop-blur-sm;
+  }
+
+  /* ── Gold gradient CTA button ── */
+  .btn-gold {
+    @apply px-8 py-3 font-semibold text-charcoal rounded-xl
+           bg-gradient-to-r from-gold-400 to-gold-500
+           hover:from-gold-500 hover:to-gold-600
+           shadow-md hover:shadow-lg
+           transition-all duration-300 ease-out
+           active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2.5 font-medium text-sand-500 rounded-xl
+           border border-sand-300 bg-white/60 backdrop-blur-sm
+           hover:bg-sand-100 hover:border-sand-400
+           transition-all duration-200;
+  }
+
+  /* ── Form inputs ── */
+  .input-luxury {
+    @apply w-full px-4 py-3 rounded-xl
+           bg-sand-50 border border-sand-200
+           text-charcoal placeholder:text-sand-400
+           focus:outline-none focus:ring-2 focus:ring-gold-400/40 focus:border-gold-400
+           transition-all duration-200;
+  }
+
+  .label-luxury {
+    @apply block text-sm font-medium text-espresso mb-1.5 tracking-wide;
+  }
+
+  .select-luxury {
+    @apply w-full px-4 py-3 rounded-xl appearance-none
+           bg-sand-50 border border-sand-200
+           text-charcoal
+           focus:outline-none focus:ring-2 focus:ring-gold-400/40 focus:border-gold-400
+           transition-all duration-200
+           bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%239C8B70%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')]
+           bg-[length:12px] bg-[right_16px_center] bg-no-repeat pr-10;
+  }
+
+  .checkbox-luxury {
+    @apply h-4 w-4 rounded border-sand-300 text-gold-500
+           focus:ring-gold-400/40 accent-gold-500;
+  }
+
+  /* ── Result card ── */
+  .result-card {
+    @apply p-6 rounded-2xl bg-white/80 backdrop-blur-sm
+           border border-sand-200 shadow-sm;
+  }
+
+  /* ── Section divider ── */
+  .divider-gold {
+    @apply h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent my-6;
+  }
+
+  /* ── Chat bubble ── */
+  .chat-bubble-user {
+    @apply bg-gradient-to-br from-gold-400 to-gold-500 text-charcoal
+           rounded-2xl rounded-br-md px-4 py-2.5 max-w-[80%] ml-auto shadow-sm;
+  }
+  .chat-bubble-assistant {
+    @apply bg-ivory text-charcoal border border-sand-200
+           rounded-2xl rounded-bl-md px-4 py-2.5 max-w-[80%] shadow-sm;
+  }
+
+  /* ── Nav transparent / solid states ── */
+  .nav-transparent {
+    @apply bg-transparent text-white border-transparent;
+  }
+  .nav-solid {
+    @apply bg-sand-50/95 backdrop-blur-md text-charcoal border-b border-sand-200 shadow-sm;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 0.1s; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+  .animate-delay-300 { animation-delay: 0.3s; }
+  .animate-delay-400 { animation-delay: 0.4s; }
+
+  .text-balance { text-wrap: balance; }
+}
+
+/* ── Print styles ── */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; }
+  .glass-card { background: white !important; border: 1px solid #e0e0e0 !important; backdrop-filter: none !important; }
+}

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getTrendForCity, getYoYGrowth, getCAGR } from '../../../../lib/trends';
-import { findCityById } from '../../../../lib/rules';
-import { getCurrencyForCountry } from '../../../../lib/currency';
+import { getTrendForCity, getYoYGrowth, getCAGR } from '../../../lib/trends';
+import { findCityById } from '../../../lib/rules';
+import { getCurrencyForCountry } from '../../../lib/currency';
 
 function validateApiKey(req: NextRequest): boolean {
   const key = req.headers.get('x-api-key');

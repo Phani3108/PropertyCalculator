@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { calculateFlatCostAsync, calculateHouseCostAsync } from '../../../../lib/calculators';
+import { calculateFlatCostAsync, calculateHouseCostAsync } from '../../../lib/calculators';
 
 function validateApiKey(req: NextRequest): boolean {
   const key = req.headers.get('x-api-key');

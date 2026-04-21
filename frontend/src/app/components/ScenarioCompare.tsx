@@ -181,11 +181,11 @@ export default function ScenarioCompare() {
   }
 
   const Panel = ({ label, s, setS }: { label: string; s: ScenarioForm; setS: (u: any) => void }) => (
-    <div className="flex-1 bg-white rounded border p-4 space-y-3">
-      <h3 className="font-semibold">{label}</h3>
+    <div className="flex-1 glass-card p-5 space-y-4">
+      <h3 className="font-serif font-semibold text-espresso">{label}</h3>
       <div>
-        <label className="block mb-1">City</label>
-        <select className="w-full p-2 border rounded" value={s.cityId} onChange={e => setS((p: ScenarioForm) => ({ ...p, cityId: e.target.value }))}>
+        <label className="label-luxury">City</label>
+        <select className="select-luxury" value={s.cityId} onChange={e => setS((p: ScenarioForm) => ({ ...p, cityId: e.target.value }))}>
           <option value="">Select City</option>
           {cities.map(c => (
             <option key={c.id} value={c.id}>{c.name}, {c.state}</option>
@@ -193,25 +193,25 @@ export default function ScenarioCompare() {
         </select>
       </div>
       <div>
-        <label className="block mb-1">Property Type</label>
-        <select className="w-full p-2 border rounded" value={s.propertyType} onChange={e => setS((p: ScenarioForm) => ({ ...p, propertyType: e.target.value as PropertyType }))}>
+        <label className="label-luxury">Property Type</label>
+        <select className="select-luxury" value={s.propertyType} onChange={e => setS((p: ScenarioForm) => ({ ...p, propertyType: e.target.value as PropertyType }))}>
           <option value="flat">Flat</option>
           <option value="house">Independent House</option>
         </select>
       </div>
       {s.propertyType === 'house' && (
         <div>
-          <label className="block mb-1">Plot Area (sq ft)</label>
-          <input className="w-full p-2 border rounded" type="number" value={s.plotSqft} onChange={e => setS((p: ScenarioForm) => ({ ...p, plotSqft: e.target.value }))} />
+          <label className="label-luxury">Plot Area (sq ft)</label>
+          <input className="input-luxury" type="number" value={s.plotSqft} onChange={e => setS((p: ScenarioForm) => ({ ...p, plotSqft: e.target.value }))} />
         </div>
       )}
       <div>
-        <label className="block mb-1">Built-up Area (sq ft)</label>
-        <input className="w-full p-2 border rounded" type="number" value={s.builtUpSqft} onChange={e => setS((p: ScenarioForm) => ({ ...p, builtUpSqft: e.target.value }))} />
+        <label className="label-luxury">Built-up Area (sq ft)</label>
+        <input className="input-luxury" type="number" value={s.builtUpSqft} onChange={e => setS((p: ScenarioForm) => ({ ...p, builtUpSqft: e.target.value }))} />
       </div>
       <div>
-        <label className="block mb-1">Quality</label>
-        <select className="w-full p-2 border rounded" value={s.budgetQuality} onChange={e => setS((p: ScenarioForm) => ({ ...p, budgetQuality: e.target.value as any }))}>
+        <label className="label-luxury">Quality</label>
+        <select className="input-luxury" value={s.budgetQuality} onChange={e => setS((p: ScenarioForm) => ({ ...p, budgetQuality: e.target.value as any }))}>
           <option value="basic">Basic</option>
           <option value="standard">Standard</option>
           <option value="luxury">Luxury</option>
@@ -220,8 +220,8 @@ export default function ScenarioCompare() {
       {s.propertyType === 'house' && (
         <>
           <div>
-            <label className="block mb-1">Location Type</label>
-            <select className="w-full p-2 border rounded" value={s.landLocation} onChange={e => setS((p: ScenarioForm) => ({ ...p, landLocation: e.target.value as any }))}>
+            <label className="label-luxury">Location Type</label>
+            <select className="input-luxury" value={s.landLocation} onChange={e => setS((p: ScenarioForm) => ({ ...p, landLocation: e.target.value as any }))}>
               <option value="cityCore">City Core</option>
               <option value="suburb">Suburb</option>
               <option value="custom">Custom Rate</option>
@@ -229,12 +229,12 @@ export default function ScenarioCompare() {
           </div>
           {s.landLocation === 'custom' && (
             <div>
-              <label className="block mb-1">Custom Land Rate (₹/sq ft)</label>
-              <input className="w-full p-2 border rounded" type="number" value={s.customLandRate} onChange={e => setS((p: ScenarioForm) => ({ ...p, customLandRate: e.target.value }))} />
+              <label className="label-luxury">Custom Land Rate (₹/sq ft)</label>
+              <input className="input-luxury" type="number" value={s.customLandRate} onChange={e => setS((p: ScenarioForm) => ({ ...p, customLandRate: e.target.value }))} />
             </div>
           )}
           <label className="inline-flex items-center gap-2">
-            <input type="checkbox" checked={s.includePermits} onChange={e => setS((p: ScenarioForm) => ({ ...p, includePermits: e.target.checked }))} />
+            <input type="checkbox" className="checkbox-luxury" checked={s.includePermits} onChange={e => setS((p: ScenarioForm) => ({ ...p, includePermits: e.target.checked }))} />
             Include Permits <InfoTooltip text="Permits ~3% of construction cost." href="https://www.mohua.gov.in/" />
           </label>
         </>
@@ -242,39 +242,39 @@ export default function ScenarioCompare() {
       {s.propertyType === 'flat' && (
         <>
           <div>
-            <label className="block mb-1">Gender</label>
-            <select className="w-full p-2 border rounded" value={s.gender} onChange={e => setS((p: ScenarioForm) => ({ ...p, gender: e.target.value as any }))}>
+            <label className="label-luxury">Gender</label>
+            <select className="input-luxury" value={s.gender} onChange={e => setS((p: ScenarioForm) => ({ ...p, gender: e.target.value as any }))}>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
           </div>
           <label className="inline-flex items-center gap-2">
-            <input type="checkbox" checked={s.pmayToggle} onChange={e => setS((p: ScenarioForm) => ({ ...p, pmayToggle: e.target.checked }))} />
+            <input type="checkbox" className="checkbox-luxury" checked={s.pmayToggle} onChange={e => setS((p: ScenarioForm) => ({ ...p, pmayToggle: e.target.checked }))} />
             PMAY <InfoTooltip text="Eligible buyers may get subsidy (~2%)." href="https://pmay-urban.gov.in/" />
           </label>
           <label className="inline-flex items-center gap-2">
-            <input type="checkbox" checked={s.gstToggle} onChange={e => setS((p: ScenarioForm) => ({ ...p, gstToggle: e.target.checked }))} />
+            <input type="checkbox" className="checkbox-luxury" checked={s.gstToggle} onChange={e => setS((p: ScenarioForm) => ({ ...p, gstToggle: e.target.checked }))} />
             Include GST <InfoTooltip text="GST 5% for under-construction." href="https://www.cbic.gov.in/" />
           </label>
         </>
       )}
       <label className="inline-flex items-center gap-2">
-        <input type="checkbox" checked={s.includeLoan} onChange={e => setS((p: ScenarioForm) => ({ ...p, includeLoan: e.target.checked }))} />
+        <input type="checkbox" className="checkbox-luxury" checked={s.includeLoan} onChange={e => setS((p: ScenarioForm) => ({ ...p, includeLoan: e.target.checked }))} />
         Include Loan/EMI
       </label>
       {s.includeLoan && (
         <>
           <div>
-            <label className="block mb-1">Loan Percentage</label>
-            <input className="w-full p-2 border rounded" type="number" value={s.loanPercent} onChange={e => setS((p: ScenarioForm) => ({ ...p, loanPercent: e.target.value }))} />
+            <label className="label-luxury">Loan Percentage</label>
+            <input className="input-luxury" type="number" value={s.loanPercent} onChange={e => setS((p: ScenarioForm) => ({ ...p, loanPercent: e.target.value }))} />
           </div>
           <div>
-            <label className="block mb-1">Interest Rate (%)</label>
-            <input className="w-full p-2 border rounded" type="number" value={s.interestRate} onChange={e => setS((p: ScenarioForm) => ({ ...p, interestRate: e.target.value }))} />
+            <label className="label-luxury">Interest Rate (%)</label>
+            <input className="input-luxury" type="number" value={s.interestRate} onChange={e => setS((p: ScenarioForm) => ({ ...p, interestRate: e.target.value }))} />
           </div>
           <div>
-            <label className="block mb-1">Loan Tenure (Years)</label>
-            <input className="w-full p-2 border rounded" type="number" value={s.loanTenureYears} onChange={e => setS((p: ScenarioForm) => ({ ...p, loanTenureYears: e.target.value }))} />
+            <label className="label-luxury">Loan Tenure (Years)</label>
+            <input className="input-luxury" type="number" value={s.loanTenureYears} onChange={e => setS((p: ScenarioForm) => ({ ...p, loanTenureYears: e.target.value }))} />
           </div>
         </>
       )}
@@ -283,52 +283,52 @@ export default function ScenarioCompare() {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Scenario Compare</h1>
+      <h1 className="text-2xl font-serif font-bold text-espresso mb-4">Scenario Compare</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Panel label="Scenario A" s={a} setS={setA} />
         <Panel label="Scenario B" s={b} setS={setB} />
       </div>
-      <div className="mt-4 flex gap-2">
-        <button onClick={onCompare} disabled={loading} className="bg-blue-600 text-white px-4 py-2 rounded disabled:bg-blue-300">{loading ? 'Comparing...' : 'Compare'}</button>
-        <button onClick={copyShareLink} className="bg-gray-200 text-gray-800 px-4 py-2 rounded">Copy Shareable Link</button>
+      <div className="mt-5 flex gap-3">
+        <button onClick={onCompare} disabled={loading} className="btn-gold disabled:opacity-50">{loading ? 'Comparing...' : 'Compare'}</button>
+        <button onClick={copyShareLink} className="btn-secondary">Copy Shareable Link</button>
       </div>
-      {error && <div className="mt-4 p-3 bg-red-100 text-red-700 rounded">{error}</div>}
+      {error && <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700">{error}</div>}
       {(resA || resB) && (
         <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white border rounded p-4">
-            <h3 className="font-semibold mb-2">Result A</h3>
+          <div className="result-card p-5">
+            <h3 className="font-serif font-semibold text-espresso mb-2">Result A</h3>
             {resA ? (
-              <div className="text-sm space-y-1">
-                <div>Total: ₹{resA.totalPayable.toLocaleString()}</div>
+              <div className="text-sm space-y-1 text-sand-500">
+                <div className="font-bold text-espresso">Total: ₹{resA.totalPayable.toLocaleString()}</div>
                 <div>Base: ₹{resA.baseCost.toLocaleString()}</div>
                 <div>Stamp: ₹{resA.stampDuty.toLocaleString()}</div>
                 <div>Reg: ₹{resA.registration.toLocaleString()}</div>
                 {resA.emi && <div>EMI: ₹{resA.emi.toLocaleString()}</div>}
               </div>
-            ) : <div className="text-sm text-gray-500">No result</div>}
+            ) : <div className="text-sm text-sand-400">No result</div>}
           </div>
-          <div className="bg-white border rounded p-4">
-            <h3 className="font-semibold mb-2">Result B</h3>
+          <div className="result-card p-5">
+            <h3 className="font-serif font-semibold text-espresso mb-2">Result B</h3>
             {resB ? (
-              <div className="text-sm space-y-1">
-                <div>Total: ₹{resB.totalPayable.toLocaleString()}</div>
+              <div className="text-sm space-y-1 text-sand-500">
+                <div className="font-bold text-espresso">Total: ₹{resB.totalPayable.toLocaleString()}</div>
                 <div>Base: ₹{resB.baseCost.toLocaleString()}</div>
                 <div>Stamp: ₹{resB.stampDuty.toLocaleString()}</div>
                 <div>Reg: ₹{resB.registration.toLocaleString()}</div>
                 {resB.emi && <div>EMI: ₹{resB.emi.toLocaleString()}</div>}
               </div>
-            ) : <div className="text-sm text-gray-500">No result</div>}
+            ) : <div className="text-sm text-sand-400">No result</div>}
           </div>
-          <div className="bg-white border rounded p-4">
-            <h3 className="font-semibold mb-2">Difference (B - A)</h3>
+          <div className="result-card p-5 bg-gold-400/5">
+            <h3 className="font-serif font-semibold text-espresso mb-2">Difference (B − A)</h3>
             {diff ? (
-              <div className="text-sm space-y-1">
-                <div>Δ Total: ₹{diff.total.toLocaleString()}</div>
+              <div className="text-sm space-y-1 text-sand-500">
+                <div className={`font-bold ${diff.total > 0 ? 'text-red-600' : 'text-green-700'}`}>Δ Total: ₹{diff.total.toLocaleString()}</div>
                 <div>Δ EMI: ₹{diff.emi.toLocaleString()}</div>
                 <div>Δ Stamp: ₹{diff.stamp.toLocaleString()}</div>
                 <div>Δ Reg: ₹{diff.reg.toLocaleString()}</div>
               </div>
-            ) : <div className="text-sm text-gray-500">Run compare to see differences</div>}
+            ) : <div className="text-sm text-sand-400">Run compare to see differences</div>}
           </div>
         </div>
       )}

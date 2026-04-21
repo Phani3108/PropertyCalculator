@@ -60,34 +60,34 @@ export default function SavedCalculations({ onLoad }: Props) {
   if (calcs.length === 0) return null;
 
   return (
-    <div className="mt-6 p-4 bg-white border rounded">
+    <div className="mt-6 p-5 result-card">
       <button
         type="button"
         onClick={() => setExpanded(v => !v)}
         className="flex items-center justify-between w-full text-left"
       >
-        <h3 className="font-semibold text-sm">💾 Saved Calculations ({calcs.length})</h3>
-        <span className="text-xs text-gray-400">{expanded ? '▲' : '▼'}</span>
+        <h3 className="font-serif font-semibold text-espresso text-sm">Saved Calculations ({calcs.length})</h3>
+        <span className="text-xs text-sand-400">{expanded ? '▲' : '▼'}</span>
       </button>
 
       {expanded && (
         <div className="mt-3 space-y-2">
           {calcs.map(c => (
-            <div key={c.id} className="flex items-center justify-between p-2 bg-gray-50 rounded text-sm">
+            <div key={c.id} className="flex items-center justify-between p-3 bg-sand-50 rounded-xl text-sm">
               <div className="flex-1">
-                <span className="font-medium">{c.cityName}</span>
-                <span className="text-gray-400 mx-1">•</span>
-                <span className="capitalize">{c.propertyType}</span>
-                <span className="text-gray-400 mx-1">•</span>
-                <span className="font-semibold">{formatCurrency(c.totalPayable, c.country)}</span>
-                <span className="text-gray-400 text-xs ml-2">{new Date(c.timestamp).toLocaleDateString()}</span>
+                <span className="font-medium text-espresso">{c.cityName}</span>
+                <span className="text-sand-300 mx-1">·</span>
+                <span className="capitalize text-sand-500">{c.propertyType}</span>
+                <span className="text-sand-300 mx-1">·</span>
+                <span className="font-semibold text-espresso">{formatCurrency(c.totalPayable, c.country)}</span>
+                <span className="text-sand-400 text-xs ml-2">{new Date(c.timestamp).toLocaleDateString()}</span>
               </div>
-              <div className="flex gap-1">
+              <div className="flex gap-1.5">
                 {onLoad && (
                   <button
                     type="button"
                     onClick={() => onLoad(c.inputs)}
-                    className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                    className="btn-secondary !px-2.5 !py-1 text-xs"
                   >
                     Load
                   </button>
@@ -98,7 +98,7 @@ export default function SavedCalculations({ onLoad }: Props) {
                     deleteCalculation(c.id);
                     setCalcs(getSavedCalculations());
                   }}
-                  className="text-xs px-2 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200"
+                  className="text-xs px-2.5 py-1 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors"
                 >
                   ✕
                 </button>

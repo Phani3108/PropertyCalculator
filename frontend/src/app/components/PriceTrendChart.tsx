@@ -19,35 +19,35 @@ export default function PriceTrendChart({ cityId, country }: Props) {
   const range = max - min || 1;
 
   return (
-    <div className="mt-4 p-4 bg-white border rounded">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="font-semibold text-sm">📈 Price Trend (per sq ft)</h3>
+    <div className="mt-6 p-5 result-card">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="font-serif font-semibold text-espresso text-sm">Price Trend (per sq ft)</h3>
         <div className="flex gap-3 text-xs">
           {yoy !== null && (
-            <span className={yoy >= 0 ? 'text-green-600' : 'text-red-600'}>
+            <span className={yoy >= 0 ? 'text-green-700' : 'text-red-600'}>
               YoY: {yoy >= 0 ? '+' : ''}{yoy}%
             </span>
           )}
           {cagr !== null && (
-            <span className="text-blue-600">5Y CAGR: {cagr}%</span>
+            <span className="text-gold-600 font-medium">5Y CAGR: {cagr}%</span>
           )}
         </div>
       </div>
-      <div className="flex items-end gap-1" style={{ height: 120 }}>
+      <div className="flex items-end gap-1.5" style={{ height: 120 }}>
         {data.map((point: PriceTrendPoint, i: number) => {
           const height = Math.max(8, ((point.avgPricePerSqft - min) / range) * 100 + 20);
           const isLatest = i === data.length - 1;
           return (
             <div key={point.year} className="flex-1 flex flex-col items-center gap-1">
-              <span className="text-[10px] text-gray-500">
+              <span className="text-[10px] text-sand-400">
                 {formatCurrency(point.avgPricePerSqft, country)}
               </span>
               <div
-                className={`w-full rounded-t transition-all ${isLatest ? 'bg-blue-500' : 'bg-blue-200'}`}
+                className={`w-full rounded-t transition-all ${isLatest ? 'bg-gradient-to-t from-gold-500 to-gold-400' : 'bg-sand-200'}`}
                 style={{ height: `${height}%` }}
                 title={`${point.year}: ${formatCurrency(point.avgPricePerSqft, country)}/sqft`}
               />
-              <span className="text-[10px] text-gray-400">{point.year}</span>
+              <span className="text-[10px] text-sand-500 font-medium">{point.year}</span>
             </div>
           );
         })}
