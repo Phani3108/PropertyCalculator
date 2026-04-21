@@ -1,14 +1,19 @@
 import React, { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import InfoTooltip from './InfoTooltip';
 import { useLocalStorage } from './useLocalStorage';
-import { regionPathForCity } from '../lib/rules';
+import { regionPathForCity, findCityById } from '../lib/rules';
 import { loadRule } from '../utils/ruleLoader';
+import { formatCurrency, getCurrencySymbol } from '../lib/currency';
+import PriceTrendChart from './PriceTrendChart';
+import SavedCalculations, { saveCalculation } from './SavedCalculations';
+import { canCalculate, trackCalculation } from '../lib/freemium';
 
 interface City {
   id: string;
   name: string;
   state: string;
   tier: 'tier1' | 'tier2' | 'tier3';
+  country?: string;
 }
 
 interface CalculationResult {
@@ -149,6 +154,11 @@ export default function PropertyCalculator() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    // Freemium gating
+    const { allowed, remaining, limit } = canCalculate();
+    if (!allowed) {
+      return setError(`Daily free limit of ${limit} calculations reached. Upgrade to premium for unlimited access.`);
+    }
     // basic client-side validation
     if (!formData.cityId) return setError('Please select a city');
     if (!formData.builtUpSqft || Number(formData.builtUpSqft) <= 0) return setError('Built-up area must be greater than 0');
@@ -210,6 +220,18 @@ export default function PropertyCalculator() {
 
       const data = await response.json();
       setResult(data);
+      trackCalculation();
+      // Save to saved calculations
+      const city = cities.find(c => c.id === formData.cityId);
+      if (city) {
+        saveCalculation({
+          cityName: city.name,
+          country: city.country || 'India',
+          propertyType: formData.propertyType,
+          totalPayable: data.totalPayable,
+          inputs: { ...formData },
+        });
+      }
       try {
         const receipt = {
           inputs: { ...formData },
@@ -241,8 +263,8 @@ export default function PropertyCalculator() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-2">Property Cost Calculator</h1>
+    <div className="max-w-2xl mx-auto px-3 sm:px-6 py-4">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-2">Property Cost Calculator</h1>
       {rulesMeta && (
         <div className="mb-4 text-xs text-gray-600 bg-gray-100 p-3 rounded">
           Calculations based on latest rules. Version {rulesMeta.version}. Last verified {rulesMeta.lastUpdated}. Source: {rulesMeta.source}
@@ -631,57 +653,68 @@ export default function PropertyCalculator() {
         </div>
       )}
 
-      {result && (
-        <div className="mt-6 p-4 bg-green-50 rounded">
-          <h2 className="text-xl font-semibold mb-4">Cost Breakdown</h2>
-          <div className="space-y-2">
-            <p>Base Cost: ₹{result.baseCost.toLocaleString()}</p>
-            {result.gst !== undefined && (
-              <p>GST (5%): ₹{result.gst.toLocaleString()}</p>
-            )}
-            <p>Stamp Duty: ₹{result.stampDuty.toLocaleString()}</p>
-            <p>Registration: ₹{result.registration.toLocaleString()}</p>
-            {result.subsidySavings && (
-              <p className="text-green-600">
-                PMAY Subsidy Savings: ₹{result.subsidySavings.toLocaleString()}
-              </p>
-            )}
-            <div className="border-t pt-2 mt-2">
-              <p className="text-lg font-bold">
-                Total Cost: ₹{result.totalPayable.toLocaleString()}
-              </p>
-            </div>
-            {result.emi && (
+      {result && (() => {
+        const city = cities.find(c => c.id === formData.cityId);
+        const ctry = city?.country || 'India';
+        const fmt = (n: number) => formatCurrency(n, ctry);
+        return (
+          <div className="mt-6 p-4 bg-green-50 rounded">
+            <h2 className="text-xl font-semibold mb-4">Cost Breakdown</h2>
+            <div className="space-y-2">
+              <p>Base Cost: {fmt(result.baseCost)}</p>
+              {result.gst !== undefined && result.gst > 0 && (
+                <p>GST (5%): {fmt(result.gst)}</p>
+              )}
+              <p>Stamp Duty: {fmt(result.stampDuty)}</p>
+              <p>Registration: {fmt(result.registration)}</p>
+              {result.subsidySavings !== undefined && result.subsidySavings > 0 && (
+                <p className="text-green-600">
+                  PMAY Subsidy Savings: {fmt(result.subsidySavings)}
+                </p>
+              )}
+              <div className="border-t pt-2 mt-2">
+                <p className="text-lg font-bold">
+                  Total Cost: {fmt(result.totalPayable)}
+                </p>
+              </div>
+              {result.emi && (
+                <div className="mt-4">
+                  <h3 className="font-semibold">Loan Details</h3>
+                  <p>Loan Amount: {fmt(result.loanAmount!)}</p>
+                  <p>Down Payment: {fmt(result.downPayment!)}</p>
+                  <p>Monthly EMI: {fmt(result.emi)}</p>
+                  <p>Loan Tenure: {result.loanTenureYears} years</p>
+                </div>
+              )}
+              <div className="mt-4 text-sm text-gray-600">
+                <p>State: {result.stateInfo.state}</p>
+                <p>Stamp Duty Rate: {result.stateInfo.dutyPercent}%</p>
+                {result.stateInfo.femaleRebate && (
+                  <p>Female Rebate: {result.stateInfo.femaleRebate}%</p>
+                )}
+                <p>Registration Rate: {result.stateInfo.registrationPercent}%</p>
+                {result.stateInfo.note && (
+                  <p className="text-green-600">{result.stateInfo.note}</p>
+                )}
+              </div>
+              {rulesMeta && (
+                <div className="mt-2 text-xs text-gray-500">
+                  Last verified {rulesMeta.lastUpdated}. Rules version {rulesMeta.version}. Source: {rulesMeta.source}
+                </div>
+              )}
               <div className="mt-4">
-                <h3 className="font-semibold">Loan Details</h3>
-                <p>Loan Amount: ₹{result.loanAmount?.toLocaleString()}</p>
-                <p>Down Payment: ₹{result.downPayment?.toLocaleString()}</p>
-                <p>Monthly EMI: ₹{result.emi.toLocaleString()}</p>
-                <p>Loan Tenure: {result.loanTenureYears} years</p>
+                <a href="/receipt" className="text-blue-600 underline">Open printable receipt</a>
               </div>
-            )}
-            <div className="mt-4 text-sm text-gray-600">
-              <p>State: {result.stateInfo.state}</p>
-              <p>Stamp Duty Rate: {result.stateInfo.dutyPercent}%</p>
-              {result.stateInfo.femaleRebate && (
-                <p>Female Rebate: {result.stateInfo.femaleRebate}%</p>
-              )}
-              <p>Registration Rate: {result.stateInfo.registrationPercent}%</p>
-              {result.stateInfo.note && (
-                <p className="text-green-600">{result.stateInfo.note}</p>
-              )}
-            </div>
-            {rulesMeta && (
-              <div className="mt-2 text-xs text-gray-500">
-                Last verified {rulesMeta.lastUpdated}. Rules version {rulesMeta.version}. Source: {rulesMeta.source}
-              </div>
-            )}
-            <div className="mt-4">
-              <a href="/receipt" className="text-blue-600 underline">Open printable receipt</a>
             </div>
           </div>
-        </div>
+        );
+      })()}
+
+      {formData.cityId && (
+        <PriceTrendChart cityId={formData.cityId} country={cities.find(c => c.id === formData.cityId)?.country} />
       )}
+
+      <SavedCalculations onLoad={(inputs) => setFormData(prev => ({ ...prev, ...inputs }))} />
     </div>
   );
 } 

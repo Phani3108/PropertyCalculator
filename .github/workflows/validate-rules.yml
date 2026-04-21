@@ -1,0 +1,41 @@
+name: Validate Rule Files
+on:
+  pull_request:
+    paths:
+      - 'frontend/public/rules/**/*.json'
+  push:
+    paths:
+      - 'frontend/public/rules/**/*.json'
+
+jobs:
+  validate-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli ajv-formats
+
+      - name: Validate all rule files against schema
+        run: |
+          SCHEMA="frontend/public/rule_schema.json"
+          FAILED=0
+          for file in $(find frontend/public/rules -name '*.json'); do
+            echo "Validating $file..."
+            if ! ajv validate -s "$SCHEMA" -d "$file" --all-errors 2>&1; then
+              echo "❌ FAILED: $file"
+              FAILED=1
+            else
+              echo "✅ PASSED: $file"
+            fi
+          done
+          if [ "$FAILED" -eq 1 ]; then
+            echo "::error::One or more rule files failed schema validation"
+            exit 1
+          fi
+          echo "All rule files passed validation"
