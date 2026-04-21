@@ -1,0 +1,13 @@
+{
+  "region": "NSW",
+  "property_types": ["flat", "house"],
+  "stamp_duty": 0.045,
+  "registration_fee": 0.0,
+  "gst_applicable": false,
+  "loan": { "max_ltv": 0.8, "interest_rate": 0.065, "tenure_years": 30 },
+  "last_verified": "2025-07-01",
+  "source": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/transfer-duty",
+  "updated_by": "community-user",
+  "data_version": "v1.0",
+  "notes": "Banded transfer duty; first home buyers exemption up to A$800K"
+}

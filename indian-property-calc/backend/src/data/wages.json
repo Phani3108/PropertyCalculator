@@ -1,0 +1,90 @@
+{
+  "Maharashtra": {
+    "unskilled": 733,
+    "skilled": 863
+  },
+  "Delhi": {
+    "unskilled": 783,
+    "skilled": 868
+  },
+  "Karnataka": {
+    "unskilled": 701,
+    "skilled": 831
+  },
+  "Tamil Nadu": {
+    "unskilled": 686,
+    "skilled": 810
+  },
+  "Telangana": {
+    "unskilled": 694,
+    "skilled": 824
+  },
+  "West Bengal": {
+    "unskilled": 672,
+    "skilled": 792
+  },
+  "Gujarat": {
+    "unskilled": 680,
+    "skilled": 800
+  },
+  "Rajasthan": {
+    "unskilled": 663,
+    "skilled": 783
+  },
+  "Uttar Pradesh": {
+    "unskilled": 655,
+    "skilled": 775
+  },
+  "Punjab": {
+    "unskilled": 678,
+    "skilled": 798
+  },
+  "Kerala": {
+    "unskilled": 705,
+    "skilled": 835
+  },
+  "Madhya Pradesh": {
+    "unskilled": 645,
+    "skilled": 765
+  },
+  "Odisha": {
+    "unskilled": 652,
+    "skilled": 772
+  },
+  "Haryana": {
+    "unskilled": 710,
+    "skilled": 830
+  },
+  "Goa": {
+    "unskilled": 730,
+    "skilled": 850
+  },
+  "Bihar": {
+    "unskilled": 630,
+    "skilled": 750
+  },
+  "Assam": {
+    "unskilled": 650,
+    "skilled": 770
+  },
+  "Jharkhand": {
+    "unskilled": 635,
+    "skilled": 755
+  },
+  "Uttarakhand": {
+    "unskilled": 658,
+    "skilled": 778
+  },
+  "Himachal Pradesh": {
+    "unskilled": 670,
+    "skilled": 790
+  },
+  "Chhattisgarh": {
+    "unskilled": 640,
+    "skilled": 760
+  },
+  "Andhra Pradesh": {
+    "unskilled": 685,
+    "skilled": 805
+  }
+}

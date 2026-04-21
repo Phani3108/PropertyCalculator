@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Property Rule Schema",
+  "type": "object",
+  "required": [
+    "region",
+    "property_types",
+    "stamp_duty",
+    "registration_fee",
+    "gst_applicable",
+    "loan",
+    "last_verified",
+    "source",
+    "updated_by"
+  ],
+  "properties": {
+    "region": {
+      "type": "string",
+      "description": "City, state, or administrative region name"
+    },
+    "property_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["flat", "house", "land", "villa"]
+      },
+      "minItems": 1,
+      "description": "Supported property types for this region"
+    },
+    "stamp_duty": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Percentage (as decimal, e.g., 0.05 for 5%)"
+    },
+    "female_rebate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Optional rebate for female owners (decimal)"
+    },
+    "registration_fee": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "permit_fee": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Flat fee or percentage depending on local rule"
+    },
+    "gst_applicable": {
+      "type": "boolean"
+    },
+    "subsidies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "eligibility", "value"],
+        "properties": {
+          "name": { "type": "string" },
+          "eligibility": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      },
+      "description": "Optional list of subsidy schemes (e.g., PMAY)"
+    },
+    "loan": {
+      "type": "object",
+      "required": ["max_ltv", "interest_rate", "tenure_years"],
+      "properties": {
+        "max_ltv": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "interest_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "tenure_years": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "freehold_allowed": {
+      "type": "boolean",
+      "description": "Whether expats are allowed to own property in this zone"
+    },
+    "last_verified": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date when this rule was last validated"
+    },
+    "source": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the official source (PDF, gov site)"
+    },
+    "updated_by": {
+      "type": "string",
+      "description": "Contributor or system that last updated the rule"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Any special notes or conditions"
+    },
+    "data_version": {
+      "type": "string",
+      "description": "Optional version tag (e.g., v2.3)"
+    }
+  },
+  "additionalProperties": false
+}
+

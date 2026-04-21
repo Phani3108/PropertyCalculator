@@ -1,0 +1,202 @@
+[
+  {
+    "state": "Maharashtra",
+    "propertyType": "residential",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Maharashtra",
+    "propertyType": "commercial",
+    "ratePercentage": 7
+  },
+  {
+    "state": "Delhi",
+    "propertyType": "residential",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Delhi",
+    "propertyType": "commercial",
+    "ratePercentage": 7
+  },
+  {
+    "state": "Karnataka",
+    "propertyType": "residential",
+    "ratePercentage": 5
+  },
+  {
+    "state": "Karnataka",
+    "propertyType": "commercial",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Tamil Nadu",
+    "propertyType": "residential",
+    "ratePercentage": 7
+  },
+  {
+    "state": "Tamil Nadu",
+    "propertyType": "commercial",
+    "ratePercentage": 8
+  },
+  {
+    "state": "Telangana",
+    "propertyType": "residential",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Telangana",
+    "propertyType": "commercial",
+    "ratePercentage": 7
+  },
+  {
+    "state": "West Bengal",
+    "propertyType": "residential",
+    "ratePercentage": 6
+  },
+  {
+    "state": "West Bengal",
+    "propertyType": "commercial",
+    "ratePercentage": 7
+  },
+  {
+    "state": "Gujarat",
+    "propertyType": "residential",
+    "ratePercentage": 4.9
+  },
+  {
+    "state": "Gujarat",
+    "propertyType": "commercial",
+    "ratePercentage": 5.9
+  },
+  {
+    "state": "Rajasthan",
+    "propertyType": "residential",
+    "ratePercentage": 5
+  },
+  {
+    "state": "Rajasthan",
+    "propertyType": "commercial",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Uttar Pradesh",
+    "propertyType": "residential",
+    "ratePercentage": 7
+  },
+  {
+    "state": "Uttar Pradesh",
+    "propertyType": "commercial",
+    "ratePercentage": 8
+  },
+  {
+    "state": "Punjab",
+    "propertyType": "residential",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Punjab",
+    "propertyType": "commercial",
+    "ratePercentage": 7
+  },
+  {
+    "state": "Kerala",
+    "propertyType": "residential",
+    "ratePercentage": 8
+  },
+  {
+    "state": "Kerala",
+    "propertyType": "commercial",
+    "ratePercentage": 9
+  },
+  {
+    "state": "Madhya Pradesh",
+    "propertyType": "residential",
+    "ratePercentage": 7.5
+  },
+  {
+    "state": "Madhya Pradesh",
+    "propertyType": "commercial",
+    "ratePercentage": 8.5
+  },
+  {
+    "state": "Odisha",
+    "propertyType": "residential",
+    "ratePercentage": 5
+  },
+  {
+    "state": "Odisha",
+    "propertyType": "commercial",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Haryana",
+    "propertyType": "residential",
+    "ratePercentage": 7
+  },
+  {
+    "state": "Haryana",
+    "propertyType": "commercial",
+    "ratePercentage": 8
+  },
+  {
+    "state": "Goa",
+    "propertyType": "residential",
+    "ratePercentage": 3
+  },
+  {
+    "state": "Goa",
+    "propertyType": "commercial",
+    "ratePercentage": 4
+  },
+  {
+    "state": "Bihar",
+    "propertyType": "residential",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Bihar",
+    "propertyType": "commercial",
+    "ratePercentage": 7
+  },
+  {
+    "state": "Assam",
+    "propertyType": "residential",
+    "ratePercentage": 5
+  },
+  {
+    "state": "Assam",
+    "propertyType": "commercial",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Jharkhand",
+    "propertyType": "residential",
+    "ratePercentage": 5
+  },
+  {
+    "state": "Jharkhand",
+    "propertyType": "commercial",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Uttarakhand",
+    "propertyType": "residential",
+    "ratePercentage": 5
+  },
+  {
+    "state": "Uttarakhand",
+    "propertyType": "commercial",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Himachal Pradesh",
+    "propertyType": "residential",
+    "ratePercentage": 6
+  },
+  {
+    "state": "Himachal Pradesh",
+    "propertyType": "commercial",
+    "ratePercentage": 7
+  }
+]

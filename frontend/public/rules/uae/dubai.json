@@ -1,0 +1,17 @@
+{
+  "region": "Dubai",
+  "property_types": ["flat", "house"],
+  "stamp_duty": 0.04,
+  "registration_fee": 0.0025,
+  "gst_applicable": false,
+  "loan": {
+    "max_ltv": 0.8,
+    "interest_rate": 0.065,
+    "tenure_years": 20
+  },
+  "last_verified": "2025-08-01",
+  "source": "https://dubailand.gov.ae/en/open-data/",
+  "updated_by": "community-user",
+  "data_version": "v1.0"
+}
+

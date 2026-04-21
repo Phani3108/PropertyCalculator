@@ -1,0 +1,493 @@
+{
+  "cities": [
+    {
+      "name": "Mumbai",
+      "state": "Maharashtra",
+      "tier": "tier1",
+      "costs": {
+        "basic": 2500,
+        "standard": 3500,
+        "luxury": 5000
+      },
+      "construction": { "avg": 3500 },
+      "land": { "cityCore": 25000, "suburb": 15000 },
+      "landCosts": { "cityCore": 25000, "suburb": 15000 },
+      "wages": { "skilled": 1000, "unskilled": 600 },
+      "materialIndex": 1.15,
+      "laborIndex": 1.10,
+      "permitPercent": 0.03,
+      "timelineMonthsPer1000Sqft": 4,
+      "brokerageLegalFees": 0.02,
+      "furnishingSetupCosts": 0.05,
+      "maintenancePerSqftPerMonth": 5,
+      "propertyTaxRate": { "Mumbai": 1.5 }
+    },
+    {
+      "name": "Delhi",
+      "state": "Delhi",
+      "tier": "tier1",
+      "costs": {
+        "basic": 2400,
+        "standard": 3300,
+        "luxury": 4800
+      },
+      "construction": { "avg": 3300 },
+      "land": { "cityCore": 22000, "suburb": 13000 },
+      "landCosts": { "cityCore": 22000, "suburb": 13000 },
+      "wages": { "skilled": 950, "unskilled": 580 },
+      "materialIndex": 1.12,
+      "laborIndex": 1.08,
+      "permitPercent": 0.035,
+      "timelineMonthsPer1000Sqft": 4,
+      "brokerageLegalFees": 0.02,
+      "furnishingSetupCosts": 0.05,
+      "maintenancePerSqftPerMonth": 4.5,
+      "propertyTaxRate": { "Delhi": 1.2 }
+    },
+    {
+      "name": "Bangalore",
+      "state": "Karnataka",
+      "tier": "tier1",
+      "costs": {
+        "basic": 2200,
+        "standard": 3000,
+        "luxury": 4500
+      },
+      "construction": { "avg": 3000 },
+      "land": { "cityCore": 18000, "suburb": 10000 },
+      "landCosts": { "cityCore": 18000, "suburb": 10000 },
+      "wages": { "skilled": 900, "unskilled": 550 },
+      "materialIndex": 1.08,
+      "laborIndex": 1.05,
+      "permitPercent": 0.03,
+      "timelineMonthsPer1000Sqft": 3.5,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.04,
+      "maintenancePerSqftPerMonth": 4,
+      "propertyTaxRate": { "Bangalore": 1.0 }
+    },
+    {
+      "name": "Pune",
+      "state": "Maharashtra",
+      "tier": "tier2",
+      "costs": {
+        "basic": 1800,
+        "standard": 2500,
+        "luxury": 3800
+      },
+      "construction": { "avg": 2500 },
+      "land": { "cityCore": 12000, "suburb": 7000 },
+      "landCosts": { "cityCore": 12000, "suburb": 7000 },
+      "wages": { "skilled": 850, "unskilled": 520 },
+      "materialIndex": 1.05,
+      "laborIndex": 1.02,
+      "permitPercent": 0.03,
+      "timelineMonthsPer1000Sqft": 3.5,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.04,
+      "maintenancePerSqftPerMonth": 3.5,
+      "propertyTaxRate": { "Pune": 0.8 }
+    },
+    {
+      "name": "Hyderabad",
+      "state": "Telangana",
+      "tier": "tier1",
+      "costs": {
+        "basic": 2000,
+        "standard": 2800,
+        "luxury": 4200
+      },
+      "construction": { "avg": 2800 },
+      "land": { "cityCore": 15000, "suburb": 8000 },
+      "landCosts": { "cityCore": 15000, "suburb": 8000 },
+      "wages": { "skilled": 880, "unskilled": 540 },
+      "materialIndex": 1.06,
+      "laborIndex": 1.03,
+      "permitPercent": 0.03,
+      "timelineMonthsPer1000Sqft": 3.5,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.04,
+      "maintenancePerSqftPerMonth": 3.5,
+      "propertyTaxRate": { "Hyderabad": 0.9 }
+    },
+    {
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "tier": "tier1",
+      "costs": {
+        "basic": 2100,
+        "standard": 2900,
+        "luxury": 4300
+      },
+      "construction": { "avg": 2900 },
+      "land": { "cityCore": 14000, "suburb": 7500 },
+      "landCosts": { "cityCore": 14000, "suburb": 7500 },
+      "wages": { "skilled": 870, "unskilled": 530 },
+      "materialIndex": 1.05,
+      "laborIndex": 1.03,
+      "permitPercent": 0.03,
+      "timelineMonthsPer1000Sqft": 3.5,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.04,
+      "maintenancePerSqftPerMonth": 3.5,
+      "propertyTaxRate": { "Chennai": 0.85 }
+    },
+    {
+      "name": "Kolkata",
+      "state": "West Bengal",
+      "tier": "tier2",
+      "costs": { "basic": 1600, "standard": 2200, "luxury": 3400 },
+      "construction": { "avg": 2200 },
+      "land": { "cityCore": 10000, "suburb": 5500 },
+      "landCosts": { "cityCore": 10000, "suburb": 5500 },
+      "wages": { "skilled": 780, "unskilled": 480 },
+      "materialIndex": 1.02,
+      "laborIndex": 0.98,
+      "permitPercent": 0.03,
+      "timelineMonthsPer1000Sqft": 3.5,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.04,
+      "maintenancePerSqftPerMonth": 3,
+      "propertyTaxRate": { "Kolkata": 0.75 }
+    },
+    {
+      "name": "Ahmedabad",
+      "state": "Gujarat",
+      "tier": "tier2",
+      "costs": { "basic": 1700, "standard": 2300, "luxury": 3500 },
+      "construction": { "avg": 2300 },
+      "land": { "cityCore": 11000, "suburb": 6000 },
+      "landCosts": { "cityCore": 11000, "suburb": 6000 },
+      "wages": { "skilled": 800, "unskilled": 500 },
+      "materialIndex": 1.03,
+      "laborIndex": 1.00,
+      "permitPercent": 0.03,
+      "timelineMonthsPer1000Sqft": 3.5,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.04,
+      "maintenancePerSqftPerMonth": 3,
+      "propertyTaxRate": { "Ahmedabad": 0.7 }
+    },
+    {
+      "name": "Kochi",
+      "state": "Kerala",
+      "tier": "tier2",
+      "costs": { "basic": 1900, "standard": 2600, "luxury": 3900 },
+      "construction": { "avg": 2600 },
+      "land": { "cityCore": 13000, "suburb": 7000 },
+      "landCosts": { "cityCore": 13000, "suburb": 7000 },
+      "wages": { "skilled": 850, "unskilled": 520 },
+      "materialIndex": 1.04,
+      "laborIndex": 1.02,
+      "permitPercent": 0.03,
+      "timelineMonthsPer1000Sqft": 4,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.04,
+      "maintenancePerSqftPerMonth": 3.5,
+      "propertyTaxRate": { "Kochi": 0.8 }
+    },
+    {
+      "name": "Jaipur",
+      "state": "Rajasthan",
+      "tier": "tier2",
+      "costs": { "basic": 1500, "standard": 2100, "luxury": 3200 },
+      "construction": { "avg": 2100 },
+      "land": { "cityCore": 9000, "suburb": 5000 },
+      "landCosts": { "cityCore": 9000, "suburb": 5000 },
+      "wages": { "skilled": 750, "unskilled": 460 },
+      "materialIndex": 1.00,
+      "laborIndex": 0.95,
+      "permitPercent": 0.025,
+      "timelineMonthsPer1000Sqft": 3,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.035,
+      "maintenancePerSqftPerMonth": 2.5,
+      "propertyTaxRate": { "Jaipur": 0.65 }
+    },
+    {
+      "name": "Lucknow",
+      "state": "Uttar Pradesh",
+      "tier": "tier2",
+      "costs": { "basic": 1400, "standard": 2000, "luxury": 3000 },
+      "construction": { "avg": 2000 },
+      "land": { "cityCore": 8000, "suburb": 4500 },
+      "landCosts": { "cityCore": 8000, "suburb": 4500 },
+      "wages": { "skilled": 720, "unskilled": 440 },
+      "materialIndex": 0.98,
+      "laborIndex": 0.93,
+      "permitPercent": 0.025,
+      "timelineMonthsPer1000Sqft": 3,
+      "brokerageLegalFees": 0.01,
+      "furnishingSetupCosts": 0.035,
+      "maintenancePerSqftPerMonth": 2.5,
+      "propertyTaxRate": { "Lucknow": 0.6 }
+    },
+    {
+      "name": "Chandigarh",
+      "state": "Chandigarh",
+      "tier": "tier2",
+      "costs": { "basic": 1800, "standard": 2500, "luxury": 3700 },
+      "construction": { "avg": 2500 },
+      "land": { "cityCore": 14000, "suburb": 8000 },
+      "landCosts": { "cityCore": 14000, "suburb": 8000 },
+      "wages": { "skilled": 820, "unskilled": 510 },
+      "materialIndex": 1.05,
+      "laborIndex": 1.02,
+      "permitPercent": 0.03,
+      "timelineMonthsPer1000Sqft": 3.5,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.04,
+      "maintenancePerSqftPerMonth": 3,
+      "propertyTaxRate": { "Chandigarh": 0.75 }
+    },
+    {
+      "name": "Coimbatore",
+      "state": "Tamil Nadu",
+      "tier": "tier3",
+      "costs": { "basic": 1300, "standard": 1800, "luxury": 2800 },
+      "construction": { "avg": 1800 },
+      "land": { "cityCore": 6000, "suburb": 3500 },
+      "landCosts": { "cityCore": 6000, "suburb": 3500 },
+      "wages": { "skilled": 700, "unskilled": 430 },
+      "materialIndex": 0.95,
+      "laborIndex": 0.90,
+      "permitPercent": 0.025,
+      "timelineMonthsPer1000Sqft": 3,
+      "brokerageLegalFees": 0.01,
+      "furnishingSetupCosts": 0.03,
+      "maintenancePerSqftPerMonth": 2,
+      "propertyTaxRate": { "Coimbatore": 0.55 }
+    },
+    {
+      "name": "Indore",
+      "state": "Madhya Pradesh",
+      "tier": "tier3",
+      "costs": { "basic": 1300, "standard": 1800, "luxury": 2700 },
+      "construction": { "avg": 1800 },
+      "land": { "cityCore": 5500, "suburb": 3000 },
+      "landCosts": { "cityCore": 5500, "suburb": 3000 },
+      "wages": { "skilled": 680, "unskilled": 420 },
+      "materialIndex": 0.94,
+      "laborIndex": 0.90,
+      "permitPercent": 0.025,
+      "timelineMonthsPer1000Sqft": 3,
+      "brokerageLegalFees": 0.01,
+      "furnishingSetupCosts": 0.03,
+      "maintenancePerSqftPerMonth": 2,
+      "propertyTaxRate": { "Indore": 0.5 }
+    },
+    {
+      "name": "Visakhapatnam",
+      "state": "Andhra Pradesh",
+      "tier": "tier2",
+      "costs": { "basic": 1500, "standard": 2100, "luxury": 3200 },
+      "construction": { "avg": 2100 },
+      "land": { "cityCore": 8500, "suburb": 4500 },
+      "landCosts": { "cityCore": 8500, "suburb": 4500 },
+      "wages": { "skilled": 750, "unskilled": 460 },
+      "materialIndex": 1.00,
+      "laborIndex": 0.96,
+      "permitPercent": 0.025,
+      "timelineMonthsPer1000Sqft": 3,
+      "brokerageLegalFees": 0.015,
+      "furnishingSetupCosts": 0.035,
+      "maintenancePerSqftPerMonth": 2.5,
+      "propertyTaxRate": { "Visakhapatnam": 0.65 }
+    }
+  ],
+  "stampDuty": [
+    {
+      "state": "Maharashtra",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 6,
+          "dutyPercent": 6,
+          "femaleRebate": 1,
+          "registrationPercent": 1,
+          "note": "Metro cess of 1% additional in Mumbai/Pune",
+          "additionalCharges": {
+            "registrationFee": 1,
+            "metroCity": 1
+          }
+        }
+      ]
+    },
+    {
+      "state": "Delhi",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 6,
+          "dutyPercent": 6,
+          "femaleRebate": 2,
+          "registrationPercent": 1,
+          "note": "Women buyers get 2% rebate in Delhi",
+          "additionalCharges": {
+            "registrationFee": 1
+          }
+        }
+      ]
+    },
+    {
+      "state": "Karnataka",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 5,
+          "dutyPercent": 5,
+          "femaleRebate": 1,
+          "registrationPercent": 1,
+          "note": "Reduced rate for properties under ₹45L",
+          "additionalCharges": {
+            "registrationFee": 1
+          }
+        }
+      ]
+    },
+    {
+      "state": "Telangana",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 6,
+          "dutyPercent": 6,
+          "femaleRebate": 1,
+          "registrationPercent": 0.5,
+          "note": "Stamp duty uniform at 6%",
+          "additionalCharges": {
+            "registrationFee": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "Tamil Nadu",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 7,
+          "dutyPercent": 7,
+          "femaleRebate": 0,
+          "registrationPercent": 1,
+          "note": "One of the highest stamp duty rates in India",
+          "additionalCharges": {
+            "registrationFee": 1
+          }
+        }
+      ]
+    },
+    {
+      "state": "West Bengal",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 6,
+          "dutyPercent": 6,
+          "femaleRebate": 0,
+          "registrationPercent": 1,
+          "note": "6% for properties above ₹40L, 5% below",
+          "additionalCharges": { "registrationFee": 1 }
+        }
+      ]
+    },
+    {
+      "state": "Gujarat",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 4.9,
+          "dutyPercent": 4.9,
+          "femaleRebate": 0,
+          "registrationPercent": 1,
+          "note": "Female buyers pay same rate in Gujarat",
+          "additionalCharges": { "registrationFee": 1 }
+        }
+      ]
+    },
+    {
+      "state": "Kerala",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 8,
+          "dutyPercent": 8,
+          "femaleRebate": 0,
+          "registrationPercent": 2,
+          "note": "8% stamp duty, highest among southern states",
+          "additionalCharges": { "registrationFee": 2 }
+        }
+      ]
+    },
+    {
+      "state": "Rajasthan",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 5,
+          "dutyPercent": 5,
+          "femaleRebate": 1,
+          "registrationPercent": 1,
+          "note": "Women get 1% rebate on stamp duty",
+          "additionalCharges": { "registrationFee": 1 }
+        }
+      ]
+    },
+    {
+      "state": "Uttar Pradesh",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 7,
+          "dutyPercent": 7,
+          "femaleRebate": 2,
+          "registrationPercent": 1,
+          "note": "Women buyers get 2% rebate",
+          "additionalCharges": { "registrationFee": 1 }
+        }
+      ]
+    },
+    {
+      "state": "Chandigarh",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 6,
+          "dutyPercent": 6,
+          "femaleRebate": 2,
+          "registrationPercent": 1,
+          "note": "UT rates, women get 2% rebate",
+          "additionalCharges": { "registrationFee": 1 }
+        }
+      ]
+    },
+    {
+      "state": "Madhya Pradesh",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 7.5,
+          "dutyPercent": 7.5,
+          "femaleRebate": 1,
+          "registrationPercent": 1,
+          "note": "7.5% stamp duty in MP",
+          "additionalCharges": { "registrationFee": 1 }
+        }
+      ]
+    },
+    {
+      "state": "Andhra Pradesh",
+      "rates": [
+        {
+          "propertyType": "residential",
+          "rate": 5,
+          "dutyPercent": 5,
+          "femaleRebate": 0,
+          "registrationPercent": 1,
+          "note": "Uniform 5% stamp duty",
+          "additionalCharges": { "registrationFee": 1 }
+        }
+      ]
+    }
+  ]
+}

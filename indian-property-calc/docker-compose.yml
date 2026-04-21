@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=production
+      - PORT=3002
+      - CORS_ORIGINS=http://localhost:3000
+    volumes:
+      - db-data:/app/property_calc.db
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3002/api/cities"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:3002/api
+      - NEXT_PUBLIC_CHAT_URL=http://chat-agent:3003
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  chat-agent:
+    build: ./chat-agent
+    ports:
+      - "3003:3003"
+    environment:
+      - CHAT_PORT=3003
+      - BACKEND_URL=http://backend:3002
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TAVILY_API_KEY=${TAVILY_API_KEY:-}
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  db-data:

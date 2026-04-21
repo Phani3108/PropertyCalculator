@@ -1,0 +1,200 @@
+[
+  {
+    "name": "Mumbai",
+    "state": "Maharashtra",
+    "tier": "tier1",
+    "costs": {
+      "basic": 2500,
+      "standard": 3500,
+      "luxury": 5000
+    },
+    "landCosts": {
+      "cityCore": 25000,
+      "suburb": 15000
+    },
+    "wages": {
+      "skilled": 1000,
+      "unskilled": 600
+    }
+  },
+  {
+    "name": "Delhi",
+    "state": "Delhi",
+    "tier": "tier1",
+    "costs": {
+      "basic": 2400,
+      "standard": 3300,
+      "luxury": 4800
+    },
+    "landCosts": {
+      "cityCore": 22000,
+      "suburb": 13000
+    },
+    "wages": {
+      "skilled": 950,
+      "unskilled": 580
+    }
+  },
+  {
+    "name": "Bangalore",
+    "state": "Karnataka",
+    "tier": "tier1",
+    "costs": {
+      "basic": 2300,
+      "standard": 3200,
+      "luxury": 4500
+    },
+    "landCosts": {
+      "cityCore": 20000,
+      "suburb": 12000
+    },
+    "wages": {
+      "skilled": 900,
+      "unskilled": 550
+    }
+  },
+  {
+    "name": "Pune",
+    "state": "Maharashtra",
+    "tier": "tier2",
+    "costs": {
+      "basic": 2000,
+      "standard": 2800,
+      "luxury": 4000
+    },
+    "landCosts": {
+      "cityCore": 15000,
+      "suburb": 9000
+    },
+    "wages": {
+      "skilled": 800,
+      "unskilled": 500
+    }
+  },
+  {
+    "name": "Hyderabad",
+    "state": "Telangana",
+    "tier": "tier1",
+    "costs": {
+      "basic": 2100,
+      "standard": 2900,
+      "luxury": 4000
+    },
+    "landCosts": {
+      "cityCore": 16000,
+      "suburb": 8000
+    },
+    "wages": {
+      "skilled": 950,
+      "unskilled": 650
+    }
+  },
+  {
+    "name": "Chennai",
+    "state": "Tamil Nadu",
+    "tier": "tier1",
+    "costs": {
+      "basic": 2200,
+      "standard": 3000,
+      "luxury": 4200
+    },
+    "landCosts": {
+      "cityCore": 18000,
+      "suburb": 11000
+    },
+    "wages": {
+      "skilled": 850,
+      "unskilled": 520
+    }
+  },
+  {
+    "name": "Ahmedabad",
+    "state": "Gujarat",
+    "tier": "tier2",
+    "costs": {
+      "basic": 1900,
+      "standard": 2700,
+      "luxury": 3700
+    },
+    "landCosts": {
+      "cityCore": 14000,
+      "suburb": 7000
+    },
+    "wages": {
+      "skilled": 850,
+      "unskilled": 550
+    }
+  },
+  {
+    "name": "Kolkata",
+    "state": "West Bengal",
+    "tier": "tier1",
+    "costs": {
+      "basic": 2000,
+      "standard": 2800,
+      "luxury": 3900
+    },
+    "landCosts": {
+      "cityCore": 15000,
+      "suburb": 7500
+    },
+    "wages": {
+      "skilled": 900,
+      "unskilled": 600
+    }
+  },
+  {
+    "name": "Nagpur",
+    "state": "Maharashtra",
+    "tier": "tier2",
+    "costs": {
+      "basic": 1800,
+      "standard": 2500,
+      "luxury": 3500
+    },
+    "landCosts": {
+      "cityCore": 12000,
+      "suburb": 6000
+    },
+    "wages": {
+      "skilled": 800,
+      "unskilled": 500
+    }
+  },
+  {
+    "name": "Lucknow",
+    "state": "Uttar Pradesh",
+    "tier": "tier2",
+    "costs": {
+      "basic": 1700,
+      "standard": 2400,
+      "luxury": 3400
+    },
+    "landCosts": {
+      "cityCore": 11000,
+      "suburb": 5500
+    },
+    "wages": {
+      "skilled": 750,
+      "unskilled": 450
+    }
+  },
+  {
+    "stampDutyRegistration": 0.07,
+    "brokerageLegalFees": 0.02,
+    "furnishingSetupCosts": 0.1,
+    "maintenancePerSqftPerMonth": 3,
+    "propertyTaxRate": {
+      "Mumbai": 0.01,
+      "Delhi": 0.012,
+      "Bangalore": 0.011,
+      "Pune": 0.009,
+      "Hyderabad": 0.008,
+      "Chennai": 0.01,
+      "Ahmedabad": 0.007,
+      "Kolkata": 0.009,
+      "Nagpur": 0.006,
+      "Lucknow": 0.005
+    }
+  }
+]

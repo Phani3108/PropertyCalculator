@@ -1,0 +1,14 @@
+{
+  "region": "Texas",
+  "property_types": ["house", "flat"],
+  "stamp_duty": 0.0,
+  "registration_fee": 0.0,
+  "gst_applicable": false,
+  "loan": { "max_ltv": 0.8, "interest_rate": 0.068, "tenure_years": 30 },
+  "last_verified": "2025-07-01",
+  "source": "https://comptroller.texas.gov/",
+  "updated_by": "community-user",
+  "data_version": "v1.0",
+  "notes": "Use title fees and transfer taxes at county level; placeholder values here."
+}
+

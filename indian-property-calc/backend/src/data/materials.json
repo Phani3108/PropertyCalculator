@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Cement",
+    "unit": "bag",
+    "baseCost": 350,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 1.2,
+      "luxury": 1.5
+    }
+  },
+  {
+    "name": "Steel",
+    "unit": "kg",
+    "baseCost": 65,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 1.3,
+      "luxury": 1.6
+    }
+  },
+  {
+    "name": "Bricks",
+    "unit": "piece",
+    "baseCost": 8,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 1.4,
+      "luxury": 2.0
+    }
+  },
+  {
+    "name": "Sand",
+    "unit": "cubic_ft",
+    "baseCost": 45,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 1.2,
+      "luxury": 1.4
+    }
+  },
+  {
+    "name": "Aggregate",
+    "unit": "cubic_ft",
+    "baseCost": 55,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 1.15,
+      "luxury": 1.3
+    }
+  },
+  {
+    "name": "Paint",
+    "unit": "liter",
+    "baseCost": 200,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 1.5,
+      "luxury": 2.5
+    }
+  },
+  {
+    "name": "Tiles",
+    "unit": "sq_ft",
+    "baseCost": 80,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 2.0,
+      "luxury": 4.0
+    }
+  },
+  {
+    "name": "Electrical",
+    "unit": "point",
+    "baseCost": 300,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 1.6,
+      "luxury": 2.8
+    }
+  },
+  {
+    "name": "Plumbing",
+    "unit": "point",
+    "baseCost": 500,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 1.5,
+      "luxury": 2.5
+    }
+  },
+  {
+    "name": "Windows",
+    "unit": "piece",
+    "baseCost": 3000,
+    "qualityMultipliers": {
+      "basic": 1.0,
+      "standard": 1.8,
+      "luxury": 3.0
+    }
+  }
+]

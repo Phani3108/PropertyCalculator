@@ -1,0 +1,13 @@
+{
+  "region": "Abu Dhabi",
+  "property_types": ["flat", "house", "villa"],
+  "stamp_duty": 0.02,
+  "registration_fee": 0.002,
+  "gst_applicable": false,
+  "freehold_allowed": true,
+  "loan": { "max_ltv": 0.75, "interest_rate": 0.06, "tenure_years": 25 },
+  "last_verified": "2025-08-01",
+  "source": "https://adm.gov.ae/",
+  "updated_by": "community-user",
+  "data_version": "v1.0"
+}

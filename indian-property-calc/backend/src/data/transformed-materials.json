@@ -1,0 +1,102 @@
+[
+  {
+    "name": "cement",
+    "unit": "bag",
+    "baseCost": 350,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 1.1428571428571428,
+      "luxury": 1.2857142857142858
+    }
+  },
+  {
+    "name": "steel",
+    "unit": "kg",
+    "baseCost": 65,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 1.0769230769230769,
+      "luxury": 1.1538461538461537
+    }
+  },
+  {
+    "name": "sand",
+    "unit": "cubic_feet",
+    "baseCost": 45,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 1.2222222222222223,
+      "luxury": 1.4444444444444444
+    }
+  },
+  {
+    "name": "bricks",
+    "unit": "piece",
+    "baseCost": 8,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 1.5,
+      "luxury": 2
+    }
+  },
+  {
+    "name": "aggregate",
+    "unit": "cubic_feet",
+    "baseCost": 35,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 1.1428571428571428,
+      "luxury": 1.2857142857142858
+    }
+  },
+  {
+    "name": "tiles",
+    "unit": "square_feet",
+    "baseCost": 45,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 1.8888888888888888,
+      "luxury": 3.3333333333333335
+    }
+  },
+  {
+    "name": "paint",
+    "unit": "litre",
+    "baseCost": 200,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 1.5,
+      "luxury": 2.25
+    }
+  },
+  {
+    "name": "windows",
+    "unit": "square_feet",
+    "baseCost": 300,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 1.5,
+      "luxury": 2.1666666666666665
+    }
+  },
+  {
+    "name": "doors",
+    "unit": "piece",
+    "baseCost": 3500,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 2.4285714285714284,
+      "luxury": 4.285714285714286
+    }
+  },
+  {
+    "name": "electrical",
+    "unit": "point",
+    "baseCost": 800,
+    "qualityMultipliers": {
+      "basic": 1,
+      "standard": 1.5,
+      "luxury": 2.5
+    }
+  }
+]

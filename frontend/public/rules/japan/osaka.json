@@ -1,0 +1,13 @@
+{
+  "region": "Osaka",
+  "property_types": ["flat", "house"],
+  "stamp_duty": 0.03,
+  "registration_fee": 0.02,
+  "gst_applicable": false,
+  "loan": { "max_ltv": 0.8, "interest_rate": 0.015, "tenure_years": 35 },
+  "last_verified": "2025-07-01",
+  "source": "https://www.nta.go.jp/",
+  "updated_by": "community-user",
+  "data_version": "v1.0",
+  "notes": "Same national rates as Tokyo"
+}

@@ -1,0 +1,13 @@
+{
+  "region": "Bavaria",
+  "property_types": ["flat", "house"],
+  "stamp_duty": 0.035,
+  "registration_fee": 0.015,
+  "gst_applicable": false,
+  "loan": { "max_ltv": 0.7, "interest_rate": 0.04, "tenure_years": 25 },
+  "last_verified": "2025-07-01",
+  "source": "https://www.bayern.de/",
+  "updated_by": "community-user",
+  "data_version": "v1.0",
+  "notes": "Grunderwerbsteuer 3.5% in Bavaria, lowest in Germany"
+}

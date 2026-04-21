@@ -1,0 +1,84 @@
+[
+  {
+    "state": "Maharashtra",
+    "rates": [
+      {
+        "propertyType": "residential",
+        "rate": 6,
+        "additionalCharges": {
+          "registrationFee": 1,
+          "metroCity": 1
+        }
+      },
+      {
+        "propertyType": "commercial",
+        "rate": 6.5,
+        "additionalCharges": {
+          "registrationFee": 1,
+          "metroCity": 1
+        }
+      }
+    ]
+  },
+  {
+    "state": "Karnataka",
+    "rates": [
+      {
+        "propertyType": "residential",
+        "rate": 5.6,
+        "additionalCharges": {
+          "registrationFee": 1
+        }
+      },
+      {
+        "propertyType": "commercial",
+        "rate": 6,
+        "additionalCharges": {
+          "registrationFee": 1
+        }
+      }
+    ]
+  },
+  {
+    "state": "Delhi",
+    "rates": [
+      {
+        "propertyType": "residential",
+        "rate": 6,
+        "additionalCharges": {
+          "registrationFee": 1,
+          "municipalTax": 0.5
+        }
+      },
+      {
+        "propertyType": "commercial",
+        "rate": 7,
+        "additionalCharges": {
+          "registrationFee": 1,
+          "municipalTax": 0.5
+        }
+      }
+    ]
+  },
+  {
+    "state": "Tamil Nadu",
+    "rates": [
+      {
+        "propertyType": "residential",
+        "rate": 7,
+        "additionalCharges": {
+          "registrationFee": 1,
+          "guidanceValue": 1
+        }
+      },
+      {
+        "propertyType": "commercial",
+        "rate": 8,
+        "additionalCharges": {
+          "registrationFee": 1,
+          "guidanceValue": 1
+        }
+      }
+    ]
+  }
+]

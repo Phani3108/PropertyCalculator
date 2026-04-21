@@ -1,0 +1,13 @@
+{
+  "region": "Victoria",
+  "property_types": ["flat", "house"],
+  "stamp_duty": 0.055,
+  "registration_fee": 0.0,
+  "gst_applicable": false,
+  "loan": { "max_ltv": 0.8, "interest_rate": 0.065, "tenure_years": 30 },
+  "last_verified": "2025-07-01",
+  "source": "https://www.sro.vic.gov.au/land-transfer-duty",
+  "updated_by": "community-user",
+  "data_version": "v1.0",
+  "notes": "Banded duty; first home buyer concession available"
+}

@@ -1,0 +1,15 @@
+{
+  "region": "Maharashtra",
+  "property_types": ["flat", "house"],
+  "stamp_duty": 0.06,
+  "female_rebate": 0.01,
+  "registration_fee": 0.01,
+  "permit_fee": 0.0,
+  "gst_applicable": true,
+  "loan": { "max_ltv": 0.8, "interest_rate": 0.085, "tenure_years": 20 },
+  "last_verified": "2025-07-01",
+  "source": "https://igrmaharashtra.gov.in/",
+  "updated_by": "ops-team",
+  "data_version": "v1.0",
+  "notes": "Metro cess of 1% additional in Mumbai/Pune"
+}

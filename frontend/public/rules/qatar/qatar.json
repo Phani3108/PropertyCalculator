@@ -1,0 +1,14 @@
+{
+  "region": "Qatar",
+  "property_types": ["flat", "villa"],
+  "stamp_duty": 0.0025,
+  "registration_fee": 0.005,
+  "gst_applicable": false,
+  "freehold_allowed": true,
+  "loan": { "max_ltv": 0.7, "interest_rate": 0.055, "tenure_years": 20 },
+  "last_verified": "2025-07-01",
+  "source": "https://www.moj.gov.qa/",
+  "updated_by": "community-user",
+  "data_version": "v1.0",
+  "notes": "Freehold available in designated zones like The Pearl, Lusail"
+}
